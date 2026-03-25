@@ -1,9 +1,37 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+
+    <!-- Base application theme -->
     <style name="Base.Theme.CallingApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+
+        <item name="android:windowBackground">@color/black</item>
+
+
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+
+
+
+
+        <item name="elevationOverlayEnabled">false</item>
+
+
+        <item name="bottomNavigationStyle">@style/TransparentBottomNav</item>
+
     </style>
 
+    <!-- App theme -->
     <style name="Theme.CallingApp" parent="Base.Theme.CallingApp" />
+
+    <!-- Transparent Bottom Navigation -->
+    <style name="TransparentBottomNav" parent="Widget.Material3.BottomNavigationView">
+
+        <item name="android:background">@android:color/transparent</item>
+        <item name="backgroundTint">@android:color/transparent</item>
+
+        <item name="elevation">0dp</item>
+        <item name="itemBackground">@android:color/transparent</item>
+
+    </style>
+
 </resources>

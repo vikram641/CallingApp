@@ -1,43 +1,44 @@
 package com.example.callingapp.viewModel
 
-import android.os.Handler
-import android.os.Looper
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.callingapp.model.CallState
+import com.example.callingapp.model.CallStatus
 
-class CallViewModel: ViewModel() {
+class CallViewModel : ViewModel() {
 
-    private val _callState = MutableLiveData(CallState.IDLE)
-    val callState: LiveData<CallState> = _callState
+    private val _callStatus = MutableLiveData<CallStatus>(CallStatus.Idle)
+    val callStatus: LiveData<CallStatus> = _callStatus
 
     private val _phoneNumber = MutableLiveData<String>()
     val phoneNumber: LiveData<String> = _phoneNumber
 
-    fun startCall(number: String) {
+    private val _callDuration = MutableLiveData(0)
+    val callDuration: LiveData<Int> = _callDuration
+
+    // Set number before calling
+    fun setPhoneNumber(number: String) {
         _phoneNumber.value = number
-        _callState.value = CallState.CALLING
-
-
-        Handler(Looper.getMainLooper()).postDelayed({
-            _callState.value = CallState.RINGING
-        }, 6000)
     }
 
-    fun acceptCall() {
-        _callState.value = CallState.ACTIVE
+    // Called when real call starts (OFFHOOK)
+    fun onCallStarted() {
+        _callStatus.value = CallStatus.Started
     }
 
-    fun rejectCall() {
-        _callState.value = CallState.ENDED
+    // Called when call ends (IDLE)
+    fun onCallEnded() {
+        _callStatus.value = CallStatus.Ended
+        _callDuration.value = 0
     }
 
-    fun endCall() {
-        _callState.value = CallState.ENDED
+    // Update timer from UI / Handler
+    fun updateCallDuration(seconds: Int) {
+        _callDuration.value = seconds
     }
 
-    fun resetCall() {
-        _callState.value = CallState.IDLE
+    // Reset to idle after handling end
+    fun resetToIdle() {
+        _callStatus.value = CallStatus.Idle
     }
 }

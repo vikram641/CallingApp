@@ -1,9 +1,8 @@
 package com.example.callingapp.model
 
-enum class CallState {
-    IDLE,
-    CALLING,
-    RINGING,
-    ACTIVE,
-    ENDED
+sealed class CallStatus {
+    object Idle : CallStatus()
+    object Dialing : CallStatus()
+    object Started : CallStatus()
+    object Ended : CallStatus()
 }

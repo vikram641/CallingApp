@@ -3,38 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/dialPadFragment">
+    app:startDestination="@id/contactFragment">
 
     <fragment
         android:id="@+id/dialPadFragment"
         android:name="com.example.callingapp.VIew.DialPadFragment"
         android:label="fragment_dial_pad"
-        tools:layout="@layout/fragment_dial_pad" >
-        <action
-            android:id="@+id/action_dialPadFragment_to_outgoingCallFragment"
-            app:destination="@id/outgoingCallFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_dial_pad" />
     <fragment
-        android:id="@+id/outgoingCallFragment"
-        android:name="com.example.callingapp.VIew.OutgoingCallFragment"
-        android:label="fragment_outgoing_call"
-        tools:layout="@layout/fragment_outgoing_call" >
+        android:id="@+id/contactFragment"
+        android:name="com.example.callingapp.VIew.ContactsFragment"
+        android:label="fragment_contact"
+        tools:layout="@layout/fragment_contact" >
+
         <action
-            android:id="@+id/action_outgoingCallFragment_to_activeCallFragment"
-            app:destination="@id/activeCallFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/activeCallFragment"
-        android:name="com.example.callingapp.VIew.activeCallFragment"
-        android:label="fragment_active_call"
-        tools:layout="@layout/fragment_active_call" >
-        <action
-            android:id="@+id/action_activeCallFragment_to_dialPadFragment"
+            android:id="@+id/action_contactFragment_to_dialPadFragment"
             app:destination="@id/dialPadFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/incomingCallDialogFragment"
-        android:name="com.example.callingapp.VIew.IncomingCallDialogFragment"
-        android:label="fragment_incoming_call_dialog"
-        tools:layout="@layout/layout_incoming_call" />
 </navigation>
