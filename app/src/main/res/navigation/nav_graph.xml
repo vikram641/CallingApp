@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/contactFragment">
+    app:startDestination="@id/callLogsFragment">
 
     <fragment
         android:id="@+id/dialPadFragment"
@@ -19,5 +19,17 @@
         <action
             android:id="@+id/action_contactFragment_to_dialPadFragment"
             app:destination="@id/dialPadFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/callLogsFragment"
+        android:name="com.example.callingapp.VIew.CallLogsFragment"
+        android:label="fragment_call_logs"
+        tools:layout="@layout/fragment_call_logs" >
+        <action
+            android:id="@+id/action_callLogsFragment_to_dialPadFragment"
+            app:destination="@id/dialPadFragment" />
+        <action
+            android:id="@+id/action_callLogsFragment_to_contactFragment"
+            app:destination="@id/contactFragment" />
     </fragment>
 </navigation>

@@ -16,7 +16,7 @@
         android:gravity="center"
         android:hint="+123456"
         android:textColorHint="@color/text_light"
-        android:textColor="@color/bg_dark"
+        android:textColor="@color/white"
         android:textSize="40sp"
         app:layout_constraintBottom_toTopOf="@+id/keypad"
         app:layout_constraintEnd_toEndOf="parent"
